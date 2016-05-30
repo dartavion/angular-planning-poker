@@ -19,30 +19,36 @@ import { RouterActive } from './router-active';
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
   styles: [
+    require('normalize.css'),
     require('./app.css')
   ],
   template: `
-    <span router-active>
-      <button [routerLink]=" ['Index'] ">
-        Index
-      </button>
-    </span>
-    <span router-active>
-      <button [routerLink]=" ['Home'] ">
-        Home
-      </button>
-    </span>
-    <span router-active>
-      <button [routerLink]=" ['About'] ">
-        About
-      </button>
-    </span>
+    <md-content>
+      <md-toolbar color="primary">
+          <span>{{ name }}</span>
+          <span class="fill"></span>
+          <button md-button router-active [routerLink]=" ['Index'] ">
+            Index
+          </button>
+          <button md-button router-active [routerLink]=" ['Home'] ">
+            Home
+          </button>
+          <button md-button router-active [routerLink]=" ['About'] ">
+            About
+          </button>
+      </md-toolbar>
 
-    <main>
+      <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
+
       <router-outlet></router-outlet>
-    </main>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+
+      <footer>
+        <img [src]="angularclassLogo" width="6%">
+        <span id="footerText">WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+      </footer>
+      </md-content>
   `
 })
 @RouteConfig([
