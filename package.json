@@ -20,8 +20,8 @@
      "webdriver-manager": "webdriver-manager",
      "protractor": "protractor",
 
-     "clean": "npm cache clean && npm run node_modules/rimraf/bin.js -- node_modules doc typings coverage dist",
-       "clean:dist": "npm run node_modules/rimraf/bin.js -- dist",
+     "clean": "npm cache clean && npm run ./node_modules/rimraf/bin.js -- node_modules doc typings coverage dist",
+       "clean:dist": "npm run ./node_modules/rimraf/bin.js -- dist",
          "preclean:install": "npm run clean",
        "clean:install": "npm set progress=false && npm install",
          "preclean:start": "npm run clean",
