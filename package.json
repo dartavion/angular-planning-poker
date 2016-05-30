@@ -20,8 +20,8 @@
      "webdriver-manager": "webdriver-manager",
      "protractor": "protractor",
 
-     "clean": "npm cache clean && npm run ./node_modules/rimraf/bin.js -- node_modules doc typings coverage dist",
-       "clean:dist": "npm run ./node_modules/rimraf/bin.js -- dist",
+     "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage dist",
+       "clean:dist": "npm run rimraf -- dist",
          "preclean:install": "npm run clean",
        "clean:install": "npm set progress=false && npm install",
          "preclean:start": "npm run clean",
@@ -60,10 +60,10 @@
 
      "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
 
-     "start": "npm run server:dev",
+     "start": "npm run server:prod",
        "start:hmr": "npm run server:dev:hmr",
 
-     "postinstall": "npm run build:prod",
+     "postinstall": "npm run typings -- install",
 
        "preversion": "npm test",
      "version": "npm run build",
@@ -99,9 +99,7 @@
     "core-js": "^2.4.0",
     "normalize.css": "^4.1.1",
     "rxjs": "5.0.0-beta.6",
-    "zone.js": "~0.6.12",
-    
-    "rimraf": "^2.5.2"
+    "zone.js": "~0.6.12"
   },
   "devDependencies": {
     "@angularclass/angular2-beta-to-rc-alias": "~0.0.3",
@@ -127,6 +125,7 @@
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
     "remap-istanbul": "^0.6.3",
+    "rimraf": "^2.5.2",
 
     "codelyzer": "~0.0.19",
 
